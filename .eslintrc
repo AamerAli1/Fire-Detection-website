@@ -15,7 +15,7 @@
     "react-hooks",
     "prettier"
   ],
-
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": 8,
     "requireConfigFile": false,

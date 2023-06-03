@@ -1,9 +1,77 @@
 # This "input" configures a global authorization rule to enable public access to
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
-input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
-type Todo @model {
-  id: ID!
-  name: String!
-  description: String
+# FOR TESTING ONLY!
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: public }
+}
+
+type SensorData {
+  temperature: Temperature!
+  gps: GPS!
+  gas: Gas!
+  ir_flame: IRFlame!
+  charge_controller: ChargeController!
+  battery: Battery!
+  solar_panel: SolarPanel!
+}
+
+type Temperature {
+  value: Float!
+  units: String!
+}
+
+type GPS {
+  latitude: Float!
+  longitude: Float!
+  altitude: Float!
+  speed: Float!
+  units: GPSUnits!
+}
+
+type GPSUnits {
+  latitude: String!
+  longitude: String!
+  altitude: String!
+  speed: String!
+}
+
+type Gas {
+  concentration: Int!
+  units: String!
+}
+
+type IRFlame {
+  detected: Int!
+}
+
+type ChargeController {
+  current: Current!
+}
+
+type Current {
+  value: Float!
+  unit: String!
+}
+
+type Battery {
+  status: String!
+  voltage: Voltage!
+  current: Current!
+  charge_level: ChargeLevel!
+}
+
+type Voltage {
+  value: Float!
+  unit: String!
+}
+
+type ChargeLevel {
+  value: Int!
+  unit: String!
+}
+
+type SolarPanel {
+  voltage: Voltage!
+  current: Current!
 }

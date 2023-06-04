@@ -1,13 +1,12 @@
 {
-  "name": "@capstoneproject/fire-detection-frontend",
-  "author": "BAU",
+  "name": "@minimal/material-kit-react",
+  "author": "minimals.cc",
   "licence": "MIT",
   "version": "1.7.0",
   "private": false,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "amplify": "amplify",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx ./src",
@@ -39,16 +38,14 @@
     ]
   },
   "dependencies": {
+    "@aws-amplify/api": "^5.1.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@faker-js/faker": "^7.6.0",
     "@iconify/react": "^4.1.0",
     "@mui/lab": "^5.0.0-alpha.103",
     "@mui/material": "^5.11.10",
-    "amplify": "^0.0.11",
     "apexcharts": "^3.37.0",
-    "aws-amplify": "^5.2.4",
-    "aws-amplify-react": "^5.1.43",
     "change-case": "^4.1.2",
     "date-fns": "^2.29.3",
     "history": "^5.3.0",
@@ -66,7 +63,6 @@
     "web-vitals": "^3.1.1"
   },
   "devDependencies": {
-    "@aws-amplify/cli": "^12.0.3",
     "@babel/core": "^7.21.0",
     "@babel/eslint-parser": "^7.19.1",
     "eslint": "^8.34.0",

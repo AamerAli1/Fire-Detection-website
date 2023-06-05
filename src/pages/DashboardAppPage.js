@@ -6,6 +6,8 @@ import { Grid, Container, Typography } from '@mui/material';
 // sections
 import TemperatureRealTimeGraph from '../sections/@dashboard/app/AppRealTimeTempratureGraph';
 import GasRealTimeGraph from '../sections/@dashboard/app/AppRealTimeGasGraph';
+import SoundRealTimeGraph from '../sections/@dashboard/app/AppRealTimeSoundGraph';
+import BatteryChargeRealTimeGraph from '../sections/@dashboard/app/AppRealTimeBatteryChargeGraph';
 import {
   AppOrderTimeline,
   AppCurrentVisits,
@@ -56,6 +58,14 @@ export default function DashboardAppPage() {
           
           <Grid item xs={12} md={6} lg={6}>
           <GasRealTimeGraph />
+          </Grid>
+
+          <Grid item xs={12} md={6} lg={6}>
+          <SoundRealTimeGraph />
+          </Grid>
+          
+          <Grid item xs={12} md={6} lg={6}>
+          <BatteryChargeRealTimeGraph />
           </Grid>
 
 

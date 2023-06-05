@@ -55,15 +55,68 @@ export const gasReading = /* GraphQL */ `
       nextToken: $nextToken
     ) {
       items {
-        id
+        timestamp
+        gas
+      }
+      nextToken
+    }
+  }
+`;
+
+export const soundReading = /* GraphQL */ `
+  query ListIotDeviceRealtimedbs(
+    $filter: TableIotDeviceRealtimedbFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listIotDeviceRealtimedbs(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        timestamp
+        sound
+      }
+      nextToken
+    }
+  }
+`;
+export const batteryVoltageReading = /* GraphQL */ `
+  query ListIotDeviceRealtimedbs(
+    $filter: TableIotDeviceRealtimedbFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listIotDeviceRealtimedbs(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        timestamp
+        batteryVoltage
+      }
+      nextToken
+    }
+  }
+`;
+
+
+export const batteryChargeReading = /* GraphQL */ `
+  query ListIotDeviceRealtimedbs(
+    $filter: TableIotDeviceRealtimedbFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listIotDeviceRealtimedbs(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
         timestamp
         batteryCharge
-        batteryVoltage
-        flame
-        gas
-        solarPanelVolatge
-        sound
-        temperature
       }
       nextToken
     }

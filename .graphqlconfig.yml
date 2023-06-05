@@ -1,5 +1,5 @@
 projects:
-  My AppSync API:
+  FireDetectionAppSync:
     schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.js
@@ -11,5 +11,5 @@ projects:
         generatedFileName: ''
         docsFilePath: src/graphql
         region: eu-central-1
-        apiId: uj4r2ht3bze6nmafo4zhxilvou
+        apiId: ugtetg3qkvgppg2mjwhencqkuq
         maxDepth: 2

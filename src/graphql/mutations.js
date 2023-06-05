@@ -6,6 +6,13 @@ export const createIotDeviceRealtimedb = /* GraphQL */ `
     createIotDeviceRealtimedb(input: $input) {
       id
       timestamp
+      batteryCharge
+      batteryVoltage
+      flame
+      gas
+      solarPanelVolatge
+      sound
+      temperature
     }
   }
 `;
@@ -14,6 +21,13 @@ export const updateIotDeviceRealtimedb = /* GraphQL */ `
     updateIotDeviceRealtimedb(input: $input) {
       id
       timestamp
+      batteryCharge
+      batteryVoltage
+      flame
+      gas
+      solarPanelVolatge
+      sound
+      temperature
     }
   }
 `;
@@ -22,6 +36,13 @@ export const deleteIotDeviceRealtimedb = /* GraphQL */ `
     deleteIotDeviceRealtimedb(input: $input) {
       id
       timestamp
+      batteryCharge
+      batteryVoltage
+      flame
+      gas
+      solarPanelVolatge
+      sound
+      temperature
     }
   }
 `;

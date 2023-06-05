@@ -2,11 +2,7 @@ import React from 'react';
 import { Button, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
-import { API } from '@aws-amplify/api'
-import config from '../../aws-exports'
-import { listIotDeviceRealtimedbs } from '../../graphql/queries'
 
-API.configure(config)
 
 const Container = styled('div')({
   display: 'flex',
@@ -32,11 +28,7 @@ const LoginButton = styled(Button)({
   color: '#FFF', // Set the button text color to white
 });
 
-const ListButton = styled(Button)({
-  marginBottom: '20px',
-  backgroundColor: '#800080', // Set the button background color to purple
-  color: '#FFF', // Set the button text color to white
-});
+
 
 const FeaturesContainer = styled('div')({
   display: 'flex',
@@ -76,19 +68,6 @@ const FadedText = styled('span')({
 });
 
 function LandingPage() {
-  const handleList = async () => {
-    try {
-      const response = await API.graphql({
-        query: listIotDeviceRealtimedbs,
-        variables: {
-          // <your variables, optional>
-        },
-      });
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <Container>
@@ -97,9 +76,7 @@ function LandingPage() {
       <LoginButton component={Link} to="/login" variant="contained" color="primary">
         Login to dashboard
       </LoginButton>
-      <ListButton onClick={handleList} variant="contained" color="primary">
-        List Something
-      </ListButton>
+
 
       <div>
         <h2>

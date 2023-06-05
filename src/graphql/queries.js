@@ -6,10 +6,17 @@ export const getIotDeviceRealtimedb = /* GraphQL */ `
     getIotDeviceRealtimedb(id: $id, timestamp: $timestamp) {
       id
       timestamp
+      batteryCharge
+      batteryVoltage
+      flame
+      gas
+      solarPanelVolatge
+      sound
+      temperature
     }
   }
 `;
-export const listIotDeviceRealtimedbs = /* GraphQL */ `
+export const tempratureReading = /* GraphQL */ `
   query ListIotDeviceRealtimedbs(
     $filter: TableIotDeviceRealtimedbFilterInput
     $limit: Int
@@ -23,6 +30,40 @@ export const listIotDeviceRealtimedbs = /* GraphQL */ `
       items {
         id
         timestamp
+        batteryCharge
+        batteryVoltage
+        flame
+        gas
+        solarPanelVolatge
+        sound
+        temperature
+      }
+      nextToken
+    }
+  }
+`;
+
+export const gasReading = /* GraphQL */ `
+  query ListIotDeviceRealtimedbs(
+    $filter: TableIotDeviceRealtimedbFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listIotDeviceRealtimedbs(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        timestamp
+        batteryCharge
+        batteryVoltage
+        flame
+        gas
+        solarPanelVolatge
+        sound
+        temperature
       }
       nextToken
     }

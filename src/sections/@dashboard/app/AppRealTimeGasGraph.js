@@ -28,8 +28,8 @@ const GasRealTimeGraph = () => {
 
         // Check if new inputs are found
         if (newGases.length > 0 && newTimes.length > 0) {
-          setGasData((prevData) => [...prevData, ...newGases]);
-          setTimeData((prevData) => [...prevData, ...newTimes]);
+          setGasData((prevData) => [...newGases.reverse(), ...prevData]);
+          setTimeData((prevData) => [...newTimes.reverse(), ...prevData]);
         }
       } catch (error) {
         console.log(error);

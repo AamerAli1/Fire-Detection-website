@@ -28,8 +28,8 @@ const SoundRealTimeGraph = () => {
 
         // Check if new inputs are found
         if (newSounds.length > 0 && newTimes.length > 0) {
-          setSoundData((prevData) => [...prevData, ...newSounds]);
-          setTimeData((prevData) => [...prevData, ...newTimes]);
+          setSoundData((prevData) => [...newSounds.reverse(), ...prevData]);
+          setTimeData((prevData) => [...newTimes.reverse(), ...prevData]);
         }
       } catch (error) {
         console.log(error);

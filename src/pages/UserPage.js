@@ -9,10 +9,34 @@ import {
 export default function UserPage() {
   const [isDeviceOn, setIsDeviceOn] = useState(true);
   const [lastAbnormalReading, setLastAbnormalReading] = useState('2023-05-31 08:30:00');
-  const uptime = calculateUptime();
+  const [uptime, setUptime] = useState('');
 
-  const handleToggleDevice = (event) => {
-    setIsDeviceOn(event.target.checked);
+  const handleToggleDevice = async (event) => {
+    const newStatus = event.target.checked ? 'ON' : 'OFF';
+
+    // Make API request to update device status
+    try {
+      const response = await fetch('https://hndc78ikjd.execute-api.eu-central-1.amazonaws.com/capstone/controller', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          status: "newStatus",
+          code: 0,
+        }),
+      });
+
+      if (response.ok) {
+        setIsDeviceOn(event.target.checked);
+      } else {
+        // Handle API error if needed
+        console.error('Failed to update device status');
+      }
+    } catch (error) {
+      // Handle network error if needed
+      console.error('Network error:', error);
+    }
   };
 
   // Calculate device uptime

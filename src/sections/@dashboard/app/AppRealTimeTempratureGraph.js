@@ -5,7 +5,6 @@ import { API } from '@aws-amplify/api';
 import config from '../../../aws-exports';
 import { tempratureReading } from '../../../graphql/queries';
 
-
 API.configure(config);
 
 const TemperatureRealTimeGraph = () => {
@@ -24,12 +23,12 @@ const TemperatureRealTimeGraph = () => {
 
         const items = response.data.listIotDeviceRealtimedbs.items;
         const newTemperatures = items.map((item) => item.temperature);
-        const newTimes = items.map((item) => formatTimestamp(item.timestamp)); // Convert timestamp to readable format
+        const newTimes = items.map((item) => formatTimestamp(item.timestamp)).reverse(); // Reverse the order of timestamps
 
         // Check if new inputs are found
         if (newTemperatures.length > 0 && newTimes.length > 0) {
-          setTemperatureData((prevData) => [...prevData, ...newTemperatures]);
-          setTimeData((prevData) => [...prevData, ...newTimes]);
+          setTemperatureData((prevData) => [...newTemperatures.reverse(), ...prevData]); // Reverse the order of new temperatures
+          setTimeData((prevData) => [...newTimes.reverse(), ...prevData]);
         }
       } catch (error) {
         console.log(error);
@@ -50,11 +49,11 @@ const TemperatureRealTimeGraph = () => {
         series: [
           {
             name: 'Temperature',
-            data: temperatureData.slice(-10),
+            data: temperatureData.slice(0, 10), // Use the first 10 elements
           },
         ],
         xaxis: {
-          categories: timeData.slice(-10),
+          categories: timeData.slice(0, 10), // Use the first 10 elements
         },
       };
 
@@ -69,14 +68,11 @@ const TemperatureRealTimeGraph = () => {
     return date.toLocaleString(); // Adjust the format as needed
   };
 
-  // return <div id="temperatureChart" />;
-
   return (
     <Card>
-      <CardHeader title= "Temprature" />
-
+      <CardHeader title="Temperature" />
       <Box sx={{ p: 3, pb: 1 }} dir="ltr">
-           <div id="temperatureChart" />
+        <div id="temperatureChart" />
       </Box>
     </Card>
   );

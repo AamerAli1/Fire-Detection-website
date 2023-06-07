@@ -28,8 +28,8 @@ const BatteryChargeRealTimeGraph = () => {
 
         // Check if new inputs are found
         if (newBatteryCharges.length > 0 && newBatteryCharge.length > 0) {
-          setBatteryChargeData((prevData) => [...prevData, ...newBatteryCharges]);
-          setTimeData((prevData) => [...prevData, ...newBatteryCharge]);
+          setBatteryChargeData((prevData) => [...newBatteryCharges.reverse(), ...prevData]);
+          setTimeData((prevData) => [...newBatteryCharge.reverse(), ...prevData]);
         }
       } catch (error) {
         console.log(error);
